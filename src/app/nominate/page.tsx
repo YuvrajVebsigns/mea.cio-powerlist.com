@@ -557,10 +557,11 @@
 
 'use client';
 
-import { useState } from 'react';
+// import { useState } from 'react';
 import Link from 'next/link';
 import { MONGODB_ID_REGEX, NOMINATION_CATEGORY_OPTIONS } from '@/constants/nominations.constants';
 import { submitWebsiteNomination } from '@/services/nominations.service';
+import { useEffect, useState } from 'react';
 
 type CIOEntry = {
   categoryId: string;
@@ -607,6 +608,15 @@ export default function NominatePage() {
   const [animationType, setAnimationType] = useState<'add' | 'remove' | null>(null);
 
   const maxCios = 10;
+
+  useEffect(() => {
+    if (status) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+  }, [status]);
 
   const addCio = () => {
     if (cios.length >= maxCios) return;
