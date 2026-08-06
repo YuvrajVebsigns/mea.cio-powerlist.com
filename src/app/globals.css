@@ -6584,7 +6584,7 @@ main {
   margin: 1;
   color: white;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 25px;
   font-weight: 700;
 }
 
@@ -6605,6 +6605,46 @@ main {
 
 .blog-breadcrumb span {
   color: white;
+}
+
+@media (max-width: 768px) {
+  .blog-hero {
+    width: calc(100% - 20px);
+    height: 280px;
+    margin: 100px auto 20px;
+    border-radius: 16px;
+  }
+
+  .blog-hero-media,
+  .blog-hero-overlay {
+    border-radius: 16px;
+  }
+
+  .blog-hero-content {
+    padding: 16px;
+  }
+
+  .blog-hero-content h1 {
+    font-size: 34px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .blog-breadcrumb {
+    padding: 6px 14px;
+    gap: 5px;
+  }
+
+  .blog-breadcrumb a,
+  .blog-breadcrumb p,
+  .blog-breadcrumb span {
+    font-size: 16px;
+  }
+
+  .blog-home-icon {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* =========================================================
