@@ -1718,7 +1718,7 @@ main {
 .contact-form-area {
   background: #810b0b;
   padding: 42px 50px;
-  height: 450px;
+  height: 500px;
   border-radius: 24px;
   margin-top: auto;
   position: relative;
@@ -1951,6 +1951,357 @@ main {
     top: 53%;
     left: 77%;
   }
+}
+
+/* =========================================================
+   CLOUDFLARE CAPTCHA
+========================================================= */
+
+.contact-captcha {
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.captcha-title {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   CAPTCHA BOX
+========================================================= */
+
+.custom-captcha {
+  width: 60%;
+  min-height: 62px;
+
+  padding: 8px 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #f2ecec;
+  color: #222;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.custom-captcha:hover {
+  background: #ffffff;
+
+  border-color: rgba(255, 255, 255, 0.3);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   VERIFIED STATE
+========================================================= */
+
+.custom-captcha-verified {
+  background: #ffffff;
+
+  border-color: rgba(255, 255, 255, 0.5);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================================
+   ERROR STATE
+========================================================= */
+
+.custom-captcha-error {
+  border-color: rgba(255, 180, 180, 0.8);
+
+  background: #fff5f5;
+}
+
+/* =========================================================
+   CAPTCHA CHECK ICON
+========================================================= */
+
+.captcha-check {
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(129, 11, 11, 0.2);
+  border-radius: 8px;
+
+  color: #810b0b;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Empty circle */
+
+.captcha-check > span {
+  width: 14px;
+  height: 14px;
+
+  display: block;
+
+  border: 2px solid #8d8585;
+  border-radius: 50%;
+}
+
+/* Verified */
+
+.captcha-check-success {
+  background: #810b0b;
+
+  color: #ffffff;
+
+  border-color: #810b0b;
+
+  transform: scale(1.04);
+}
+
+/* Verifying */
+
+.captcha-check-loading {
+  background: #ffffff;
+
+  color: #810b0b;
+
+  border-color: rgba(129, 11, 11, 0.3);
+}
+
+/* =========================================================
+   CAPTCHA CONTENT
+========================================================= */
+
+.captcha-content {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 3px;
+}
+
+.captcha-content strong {
+  display: block;
+
+  color: #222;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.custom-captcha-verified .captcha-content strong {
+  color: #810b0b;
+}
+
+.custom-captcha-error .captcha-content strong {
+  color: #810b0b;
+}
+
+.captcha-content small {
+  display: block;
+
+  color: #756d6d;
+
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* =========================================================
+   I'M HUMAN BUTTON
+========================================================= */
+
+.captcha-verify-button {
+  min-width: 88px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  padding: 0 13px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #810b0b;
+  color: #ffffff;
+
+  border: 1px solid #810b0b;
+  border-radius: 8px;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 15px rgba(129, 11, 11, 0.18);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.captcha-verify-button:hover:not(:disabled) {
+  background: #ffffff;
+  color: #810b0b;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 8px 18px rgba(129, 11, 11, 0.15);
+}
+
+.captcha-verify-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Disabled */
+
+.captcha-verify-button:disabled {
+  background: #c7c0c0;
+  color: #777070;
+
+  border-color: #c7c0c0;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+
+  opacity: 0.75;
+}
+
+/* =========================================================
+   REFRESH BUTTON
+========================================================= */
+
+.captcha-refresh-icon-button {
+  width: 36px;
+  height: 36px;
+
+  flex: 0 0 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  color: #810b0b;
+
+  border: 1px solid rgba(129, 11, 11, 0.2);
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.captcha-refresh-icon-button:hover:not(:disabled) {
+  background: #810b0b;
+  color: #ffffff;
+
+  border-color: #810b0b;
+
+  transform: rotate(20deg);
+}
+
+.captcha-refresh-icon-button:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.captcha-refresh-icon-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* =========================================================
+   CAPTCHA SPINNER
+========================================================= */
+
+.captcha-spin {
+  animation: captchaSpin 0.8s linear infinite;
+}
+
+@keyframes captchaSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   INVISIBLE TURNSTILE
+========================================================= */
+
+.turnstile-invisible {
+  position: absolute !important;
+
+  width: 1px !important;
+  height: 1px !important;
+
+  overflow: hidden !important;
+
+  opacity: 0 !important;
+
+  visibility: hidden !important;
+
+  pointer-events: none !important;
+}
+
+/* =========================================================
+   BUTTON FOCUS
+========================================================= */
+
+.captcha-verify-button:focus-visible,
+.captcha-refresh-icon-button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 
 /* =========================================================
